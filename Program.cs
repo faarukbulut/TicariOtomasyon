@@ -1,7 +1,11 @@
+using TicariOtomasyon.Models.Siniflar;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+builder.Services.AddDbContext<Context>();
 
 var app = builder.Build();
 
