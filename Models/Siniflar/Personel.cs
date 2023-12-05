@@ -21,6 +21,8 @@ namespace TicariOtomasyon.Models.Siniflar
 		public string PersonelGorsel { get; set; }
 
 		public ICollection<SatisHareket> SatisHarekets { get; set; }
+
+		public int DepartmanID { get; set; }
 		public Departman Departman { get; set; }
 	}
 }

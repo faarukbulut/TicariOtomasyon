@@ -4,10 +4,10 @@ namespace TicariOtomasyon.Repositories.KategoriRepositories
 {
     public interface IKategoriRepository
     {
-        List<Kategori> GetAllKategori();
-        void CreateKategori(Kategori kategori);
-        void DeleteKategori(int id);
-        void UpdateKategori(Kategori kategori);
-        Kategori GetKategori(int id);
+        List<Kategori> GetAll();
+        void Create(Kategori kategori);
+        void Delete(int id);
+        void Update(Kategori kategori);
+        Kategori Get(int id);
     }
 }

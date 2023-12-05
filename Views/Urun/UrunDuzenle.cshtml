@@ -1,0 +1,47 @@
+﻿@model Urun
+@{
+    ViewData["Title"] = "UrunDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h4 class="mt-4">Yeni Ürün Düzenle</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="post" class="form-group">
+
+                @Html.HiddenFor(x => x.UrunID)
+
+                <label>Ürün Ad</label>
+                <input type="text" asp-for="UrunAd" class="form-control" />
+                <br />
+
+                <label>Marka</label>
+                <input type="text" asp-for="Marka" class="form-control" />
+                <br />
+
+                <label>Stok</label>
+                <input type="text" asp-for="Stok" class="form-control" />
+                <br />
+
+                <label>Alış Fiyat</label>
+                <input type="text" asp-for="AlisFiyat" class="form-control" />
+                <br />
+
+                <label>Satış Fiyat</label>
+                <input type="text" asp-for="SatisFiyat" class="form-control" />
+                <br />
+
+                <label>Görsel</label>
+                <input type="text" asp-for="UrunGorsel" class="form-control" />
+                <br />
+
+                <label>Kategori</label>
+                <select asp-for="KategoriID" asp-items="@(new SelectList(ViewBag.Kategoriler, "KategoriID", "KategoriAd"))" class="form-control"></select>
+                <br />
+
+                <button class="btn btn-primary">Düzenle</button>
+            </form>
+        </div>
+    </div>
+</div>

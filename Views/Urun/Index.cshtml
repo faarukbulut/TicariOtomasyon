@@ -1,0 +1,49 @@
+﻿@model List<Urun>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h4 class="mt-4">Ürünler</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ürün</th>
+                        <th>Marka</th>
+                        <th>Stok</th>
+                        <th>Alış Fiyat</th>
+                        <th>Satış Fiyat</th>
+                        <th>Kategori</th>
+                        <th>Görsel</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.UrunID</td>
+                            <td>@item.UrunAd</td>
+                            <td>@item.Marka</td>
+                            <td>@item.Stok</td>
+                            <td>@item.AlisFiyat ₺</td>
+                            <td>@item.SatisFiyat ₺</td>
+                            <td>@item.Kategori.KategoriAd</td>
+                            <td>@item.UrunGorsel</td>
+                            <td><a href="/Urun/UrunDuzenle/@item.UrunID" class="btn btn-outline-info">Düzenle</a></td>
+                            <td><a href="/Urun/UrunSil/@item.UrunID" class="btn btn-outline-danger">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a href="/Urun/UrunEkle" class="btn btn-primary">Yeni Ekle</a>
+        </div>
+    </div>
+</div>
+
