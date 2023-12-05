@@ -1,0 +1,43 @@
+﻿@model List<SatisHareket>
+@{
+    ViewData["Title"] = "DepartmanPersonelSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h4 class="mt-4">@ViewBag.personel Satışları</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Satış ID</th>
+                        <th>Ürün</th>
+                        <th>Cari</th>
+                        <th>Fiyat</th>
+                        <th>Adet</th>
+                        <th>Toplam</th>
+                        <th>Tarih</th>
+                        <th>Yazdır</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SatisHareketID</td>
+                            <td>@item.Urun.UrunAd</td>
+                            <td>@item.Cari.CariAd @item.Cari.CariSoyad</td>
+                            <td>@item.Fiyat t</td>
+                            <td>@item.Adet</td>
+                            <td>@item.ToplamTutar ₺</td>
+                            <td>@item.Tarih</td>
+                            <td><a href="#" class="btn btn-outline-info">Yazdır</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@model Departman
+@{
+    ViewData["Title"] = "DepartmanEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h4 class="mt-4">Yeni Departman Ekle</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="post" class="form-group">
+
+                <label>Departman Ad</label>
+                <input type="text" asp-for="DepartmanAd" class="form-control" />
+                <br />
+
+                <button class="btn btn-primary">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>

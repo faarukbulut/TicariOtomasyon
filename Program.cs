@@ -1,5 +1,8 @@
 using TicariOtomasyon.Models.Siniflar;
+using TicariOtomasyon.Repositories.DepartmanRepositories;
 using TicariOtomasyon.Repositories.KategoriRepositories;
+using TicariOtomasyon.Repositories.PersonelRepositories;
+using TicariOtomasyon.Repositories.SatisHareketRepositories;
 using TicariOtomasyon.Repositories.UrunRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +13,9 @@ builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IKategoriRepository, KategoriRepository>();
 builder.Services.AddScoped<IUrunRepository, UrunRepository>();
+builder.Services.AddScoped<IDepartmanRepository, DepartmanRepository>();
+builder.Services.AddScoped<IPersonelRepository, PersonelRepository>();
+builder.Services.AddScoped<ISatisHareketRepository, SatisHareketRepository>();
 
 
 var app = builder.Build();

@@ -1,0 +1,39 @@
+﻿@model List<Departman>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <h4 class="mt-4">Departmanlar</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Departman Ad</th>
+                        <th>Detay</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.DepartmanID</td>
+                            <td>@item.DepartmanAd</td>
+                            <td><a href="/Departman/DepartmanDetay/@item.DepartmanID" class="btn btn-outline-success">Detay</a></td>
+                            <td><a href="/Departman/DepartmanDuzenle/@item.DepartmanID" class="btn btn-outline-info">Düzenle</a></td>
+                            <td><a href="/Departman/DepartmanSil/@item.DepartmanID" class="btn btn-outline-danger">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a href="/Departman/DepartmanEkle" class="btn btn-primary">Yeni Ekle</a>
+        </div>
+    </div>
+</div>
