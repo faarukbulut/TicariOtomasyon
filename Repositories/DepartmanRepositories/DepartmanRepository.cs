@@ -12,16 +12,16 @@ namespace TicariOtomasyon.Repositories.DepartmanRepositories
             return values;
         }
 
-        public void Create(Departman departman)
-        {
-            c.Departmans.Add(departman);
-            c.SaveChanges();
-        }
-
         public Departman Get(int id)
         {
             var value = c.Departmans.Find(id);
             return value;
+        }
+
+        public void Create(Departman departman)
+        {
+            c.Departmans.Add(departman);
+            c.SaveChanges();
         }
 
         public void Update(Departman departman)

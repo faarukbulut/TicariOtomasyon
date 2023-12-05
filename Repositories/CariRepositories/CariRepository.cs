@@ -13,16 +13,16 @@ namespace TicariOtomasyon.Repositories.CariRepositories
             return values;
         }
 
-        public void Create(Cari cari)
-        {
-            c.Caris.Add(cari);
-            c.SaveChanges();
-        }
-
         public Cari Get(int id)
         {
             var value = c.Caris.Find(id);
             return value;
+        }
+
+        public void Create(Cari cari)
+        {
+            c.Caris.Add(cari);
+            c.SaveChanges();
         }
 
         public void Update(Cari cari)

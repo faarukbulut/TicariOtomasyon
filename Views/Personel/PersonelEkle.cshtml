@@ -1,0 +1,33 @@
+﻿@model Personel
+@{
+    ViewData["Title"] = "PersonelEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h4 class="mt-4">Yeni Personel Ekle</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="post" class="form-group">
+
+                <label>Personel Ad</label>
+                <input type="text" asp-for="PersonelAd" class="form-control" />
+                <br />
+
+                <label>Personel Soyad</label>
+                <input type="text" asp-for="PersonelSoyad" class="form-control" />
+                <br />
+
+                <label>Görsel</label>
+                <input type="text" asp-for="PersonelGorsel" class="form-control" />
+                <br />
+
+                <label>Departman</label>
+                <select asp-for="DepartmanID" asp-items="@(new SelectList(ViewBag.Departmanlar, "DepartmanID", "DepartmanAd"))" class="form-control"></select>
+                <br />
+
+                <button class="btn btn-primary">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>

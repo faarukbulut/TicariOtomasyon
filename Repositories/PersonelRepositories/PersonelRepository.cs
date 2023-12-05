@@ -8,9 +8,9 @@ namespace TicariOtomasyon.Repositories.PersonelRepositories
     {
         Context c = new Context();
 
-        public List<Personel> GetAllWithDepartman(int id)
+        public List<Personel> GetAll()
         {
-            var values = c.Personels.Where(x => x.DepartmanID == id).ToList();
+            var values = c.Personels.Include(x => x.Departman).ToList();
             return values;
         }
 
@@ -18,6 +18,24 @@ namespace TicariOtomasyon.Repositories.PersonelRepositories
         {
             var value = c.Personels.Find(id);
             return value;
+        }
+
+        public void Create(Personel personel)
+        {
+            c.Personels.Add(personel);
+            c.SaveChanges();
+        }
+
+        public void Update(Personel personel)
+        {
+            c.Personels.Update(personel);
+            c.SaveChanges();
+        }
+
+        public List<Personel> GetAllWithDepartman(int id)
+        {
+            var values = c.Personels.Where(x => x.DepartmanID == id).ToList();
+            return values;
         }
     }
 }

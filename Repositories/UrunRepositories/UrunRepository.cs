@@ -13,16 +13,16 @@ namespace TicariOtomasyon.Repositories.UrunRepositories
             return values;
         }
 
-        public void Create(Urun urun)
-        {
-            c.Uruns.Add(urun);
-            c.SaveChanges();
-        }
-
         public Urun Get(int id)
         {
             var value = c.Uruns.Find(id);
             return value;
+        }
+
+        public void Create(Urun urun)
+        {
+            c.Uruns.Add(urun);
+            c.SaveChanges();
         }
 
         public void Update(Urun urun)
@@ -30,5 +30,6 @@ namespace TicariOtomasyon.Repositories.UrunRepositories
             c.Uruns.Update(urun);
             c.SaveChanges();
         }
+
     }
 }

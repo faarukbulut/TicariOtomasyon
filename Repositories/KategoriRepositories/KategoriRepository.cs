@@ -12,9 +12,21 @@ namespace TicariOtomasyon.Repositories.KategoriRepositories
             return values;
         }
 
+        public Kategori Get(int id)
+        {
+            var value = c.Kategoris.Find(id);
+            return value;
+        }
+
         public void Create(Kategori kategori)
         {
             c.Kategoris.Add(kategori);
+            c.SaveChanges();
+        }
+
+        public void Update(Kategori kategori)
+        {
+            c.Kategoris.Update(kategori);
             c.SaveChanges();
         }
 
@@ -22,18 +34,6 @@ namespace TicariOtomasyon.Repositories.KategoriRepositories
         {
             var value = c.Kategoris.Find(id);
             c.Kategoris.Remove(value);
-            c.SaveChanges();
-        }
-
-        public Kategori Get(int id)
-        {
-            var value = c.Kategoris.Find(id);
-            return value;
-        }
-
-        public void Update(Kategori kategori)
-        {
-            c.Kategoris.Update(kategori);
             c.SaveChanges();
         }
     }
