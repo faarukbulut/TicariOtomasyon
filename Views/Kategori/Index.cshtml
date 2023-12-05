@@ -1,11 +1,11 @@
-﻿
+﻿@model List<Kategori>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="container-fluid">
-    <h3 class="mt-4">Kategori</h3>
+    <h4 class="mt-4">Kategoriler</h4>
     <div class="card mb-4">
         <div class="card-body">
             <table class="table table-bordered">
@@ -13,17 +13,24 @@
                     <tr>
                         <th>ID</th>
                         <th>Kategori Ad</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                    </tr>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <td>@item.KategoriID</td>
+                            <td>@item.KategoriAd</td>
+                            <td><a href="/Kategori/KategoriDuzenle/@item.KategoriID" class="btn btn-outline-info">Düzenle</a></td>
+                            <td><a href="/Kategori/KategoriSil/@item.KategoriID" class="btn btn-outline-danger">Sil</a></td>
+                        </tr>                    
+                    }
                 </tbody>
             </table>
 
-            <button class="btn btn-primary">Yeni Ekle</button>
+            <a href="/Kategori/KategoriEkle" class="btn btn-primary">Yeni Ekle</a>
         </div>
     </div>
 </div>

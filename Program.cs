@@ -1,4 +1,5 @@
 using TicariOtomasyon.Models.Siniflar;
+using TicariOtomasyon.Repositories.KategoriRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddDbContext<Context>();
+builder.Services.AddScoped<IKategoriRepository, KategoriRepository>();
+
 
 var app = builder.Build();
 
