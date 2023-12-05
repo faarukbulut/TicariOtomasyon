@@ -1,4 +1,5 @@
 using TicariOtomasyon.Models.Siniflar;
+using TicariOtomasyon.Repositories.CariRepositories;
 using TicariOtomasyon.Repositories.DepartmanRepositories;
 using TicariOtomasyon.Repositories.KategoriRepositories;
 using TicariOtomasyon.Repositories.PersonelRepositories;
@@ -16,6 +17,7 @@ builder.Services.AddScoped<IUrunRepository, UrunRepository>();
 builder.Services.AddScoped<IDepartmanRepository, DepartmanRepository>();
 builder.Services.AddScoped<IPersonelRepository, PersonelRepository>();
 builder.Services.AddScoped<ISatisHareketRepository, SatisHareketRepository>();
+builder.Services.AddScoped<ICariRepository, CariRepository>();
 
 
 var app = builder.Build();

@@ -1,0 +1,36 @@
+﻿@model Cari
+@{
+    ViewData["Title"] = "CariDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <h4 class="mt-4">Cari Düzenle</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="post" class="form-group">
+
+                @Html.HiddenFor(x => x.CariID)
+
+                <label>Cari Ad</label>
+                <input type="text" asp-for="CariAd" class="form-control" />
+                <br />
+
+                <label>Cari Soyad</label>
+                <input type="text" asp-for="CariSoyad" class="form-control" />
+                <br />
+
+                <label>Cari Şehir</label>
+                <input type="text" asp-for="CariSehir" class="form-control" />
+                <br />
+
+                <label>Cari Mail</label>
+                <input type="text" asp-for="CariMail" class="form-control" />
+                <br />
+
+                <button class="btn btn-primary">Düzenle</button>
+            </form>
+        </div>
+    </div>
+</div>

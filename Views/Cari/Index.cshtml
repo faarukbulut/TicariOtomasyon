@@ -1,0 +1,44 @@
+﻿@model List<Cari>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h4 class="mt-4">Cariler</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Şehir</th>
+                        <th>Mail</th>
+                        <th>Satış Geçmişi</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CariID</td>
+                            <td>@item.CariAd</td>
+                            <td>@item.CariSoyad</td>
+                            <td>@item.CariSehir</td>
+                            <td>@item.CariMail</td>
+                            <td><a href="/Cari/SatisGecmisi/@item.CariID" class="btn btn-outline-info">Satış Geçmişi</a></td>
+                            <td><a href="/Cari/CariDuzenle/@item.CariID" class="btn btn-outline-info">Düzenle</a></td>
+                            <td><a href="/Cari/CariSil/@item.CariID" class="btn btn-outline-danger">Sil</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a href="/Cari/CariEkle" class="btn btn-primary">Yeni Ekle</a>
+        </div>
+    </div>
+</div>
