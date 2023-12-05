@@ -26,6 +26,6 @@ namespace TicariOtomasyon.Models.Siniflar
 		public string UrunGorsel { get; set; }
 
 		public Kategori Kategori { get; set; }
-		public SatisHareket SatisHareket { get; set; }
+		public ICollection<SatisHareket> SatisHarekets { get; set; }
 	}
 }
