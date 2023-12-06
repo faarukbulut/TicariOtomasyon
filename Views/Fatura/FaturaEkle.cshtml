@@ -1,0 +1,49 @@
+﻿@model Fatura
+@{
+    ViewData["Title"] = "FaturaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h4 class="mt-4">Yeni Fatura Ekle</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="post" class="form-group">
+
+                <label>Seri No</label>
+                <input type="text" asp-for="FaturaSeriNo" class="form-control" />
+                <br />
+
+                <label>Sıra No</label>
+                <input type="text" asp-for="FaturaSiraNo" class="form-control" />
+                <br />
+
+                <label>Tarih</label>
+                <input type="date" asp-for="Tarih" class="form-control" />
+                <br />
+
+                <label>Vergi Dairesi</label>
+                <input type="text" asp-for="VergiDairesi" class="form-control" />
+                <br />
+
+                <label>Saat</label>
+                <input type="text" asp-for="Saat" class="form-control" />
+                <br />
+
+                <label>Teslim Eden</label>
+                <input type="text" asp-for="TeslimEden" class="form-control" />
+                <br />
+
+                <label>Teslim Alan</label>
+                <input type="text" asp-for="TeslimAlan" class="form-control" />
+                <br />
+
+                <label>Toplam</label>
+                <input type="text" asp-for="Toplam" class="form-control" />
+                <br />
+  
+                <button class="btn btn-primary">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>

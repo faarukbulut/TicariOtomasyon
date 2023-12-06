@@ -1,0 +1,38 @@
+﻿@model List<FaturaKalem>
+@{
+    ViewData["Title"] = "FaturaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h4 class="mt-4">Fatura Kalemleri</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Açıklama</th>
+                        <th>Miktar</th>
+                        <th>Birim Fiyat</th>
+                        <th>Tutar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FaturaKalemID</td>
+                            <td>@item.Aciklama</td>
+                            <td>@item.Miktar</td>
+                            <td>@item.BirimFiyat ₺</td>
+                            <td>@item.Tutar ₺</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a href="/Fatura/FaturaKalemEkle/@ViewBag.FaturaID" class="btn btn-primary">Yeni Ekle</a>
+        </div>
+    </div>
+</div>
