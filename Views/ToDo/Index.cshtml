@@ -1,0 +1,38 @@
+﻿@model List<ToDo>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper mt-3">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">To Do</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="todo-list" data-widget="todo-list">
+                        @foreach(var item in Model)
+                        {
+                            <li>
+                                <div class="icheck-primary d-inline ml-2">
+                                    <input type="checkbox" value="" name="todo1" id="todoCheck1" @(item.Durum ? "checked" : "")>
+                                    <label for="todoCheck1"></label>
+                                </div>
+
+                                <span class="text">@item.Baslik</span>
+                                <small class="badge badge-danger"><i class="far fa-clock"></i></small>
+                            </li>                          
+                        }
+
+                    </ul>
+                </div>
+                <div class="card-footer clearfix">
+                    <a href="/ToDo/ToDoEkle" class="btn btn-primary">Yeni Ekle</a>
+                </div>
+            </div>
+          
+        </div>
+    </section>
+</div>

@@ -20,5 +20,6 @@ namespace TicariOtomasyon.Models.Siniflar
 		public DbSet<SatisHareket> SatisHarekets { get; set; }
 		public DbSet<Urun> Uruns { get; set; }
 		public DbSet<UrunDetay> UrunDetays { get; set; }
+		public DbSet<ToDo> ToDos { get; set; }
 	}
 }
