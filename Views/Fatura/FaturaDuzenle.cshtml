@@ -4,49 +4,54 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<div class="content-wrapper mt-3">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Fatura Düzenle</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="form-group">
 
-<div class="container-fluid">
-    <h4 class="mt-4">Fatura Düzenle</h4>
-    <div class="card mb-4">
-        <div class="card-body">
-            <form method="post" class="form-group">
+                        @Html.HiddenFor(x => x.FaturaID)
 
-                @Html.HiddenFor(x => x.FaturaID)
+                        <label>Seri No</label>
+                        <input type="text" asp-for="FaturaSeriNo" class="form-control" />
+                        <br />
 
-                <label>Seri No</label>
-                <input type="text" asp-for="FaturaSeriNo" class="form-control" />
-                <br />
+                        <label>Sıra No</label>
+                        <input type="text" asp-for="FaturaSiraNo" class="form-control" />
+                        <br />
 
-                <label>Sıra No</label>
-                <input type="text" asp-for="FaturaSiraNo" class="form-control" />
-                <br />
+                        <label>Tarih</label>
+                        <input type="date" asp-for="Tarih" class="form-control" />
+                        <br />
 
-                <label>Tarih</label>
-                <input type="date" asp-for="Tarih" class="form-control" />
-                <br />
+                        <label>Vergi Dairesi</label>
+                        <input type="text" asp-for="VergiDairesi" class="form-control" />
+                        <br />
 
-                <label>Vergi Dairesi</label>
-                <input type="text" asp-for="VergiDairesi" class="form-control" />
-                <br />
+                        <label>Saat</label>
+                        <input type="text" asp-for="Saat" class="form-control" />
+                        <br />
 
-                <label>Saat</label>
-                <input type="text" asp-for="Saat" class="form-control" />
-                <br />
+                        <label>Teslim Eden</label>
+                        <input type="text" asp-for="TeslimEden" class="form-control" />
+                        <br />
 
-                <label>Teslim Eden</label>
-                <input type="text" asp-for="TeslimEden" class="form-control" />
-                <br />
+                        <label>Teslim Alan</label>
+                        <input type="text" asp-for="TeslimAlan" class="form-control" />
+                        <br />
 
-                <label>Teslim Alan</label>
-                <input type="text" asp-for="TeslimAlan" class="form-control" />
-                <br />
+                        <label>Toplam</label>
+                        <input type="text" asp-for="Toplam" class="form-control" />
+                        <br />
 
-                <label>Toplam</label>
-                <input type="text" asp-for="Toplam" class="form-control" />
-                <br />
-
-                <button class="btn btn-primary">Düzenle</button>
-            </form>
+                        <button class="btn btn-primary">Düzenle</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>

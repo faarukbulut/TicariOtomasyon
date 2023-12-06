@@ -4,30 +4,36 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container-fluid">
-    <h4 class="mt-4">Yeni Cari Ekle</h4>
-    <div class="card mb-4">
-        <div class="card-body">
-            <form method="post" class="form-group">
+<div class="content-wrapper mt-3">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Cari Ekle</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="form-group">
 
-                <label>Cari Ad</label>
-                <input type="text" asp-for="CariAd" class="form-control" />
-                <br />
+                        <label>Cari Ad</label>
+                        <input type="text" asp-for="CariAd" class="form-control" />
+                        <br />
 
-                <label>Cari Soyad</label>
-                <input type="text" asp-for="CariSoyad" class="form-control" />
-                <br />
+                        <label>Cari Soyad</label>
+                        <input type="text" asp-for="CariSoyad" class="form-control" />
+                        <br />
 
-                <label>Cari Şehir</label>
-                <input type="text" asp-for="CariSehir" class="form-control" />
-                <br />
+                        <label>Cari Şehir</label>
+                        <input type="text" asp-for="CariSehir" class="form-control" />
+                        <br />
 
-                <label>Cari Mail</label>
-                <input type="text" asp-for="CariMail" class="form-control" />
-                <br />
+                        <label>Cari Mail</label>
+                        <input type="text" asp-for="CariMail" class="form-control" />
+                        <br />
 
-                <button class="btn btn-primary">Ekle</button>
-            </form>
+                        <button class="btn btn-primary">Ekle</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>

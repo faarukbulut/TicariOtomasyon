@@ -4,47 +4,53 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container-fluid">
-    <h4 class="mt-4">Faturalar</h4>
-    <div class="card mb-4">
-        <div class="card-body">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Seri No</th>
-                        <th>Sıra No</th>
-                        <th>Vergi Dairesi</th>
-                        <th>Tarih</th>
-                        <th>Saat</th>
-                        <th>Toplam</th>
-                        <th>Teslim Eden</th>
-                        <th>Teslim Alan</th>
-                        <th>Detaylar</th>
-                        <th>Düzenle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@item.FaturaID</td>
-                            <td>@item.FaturaSeriNo</td>
-                            <td>@item.FaturaSiraNo</td>
-                            <td>@item.VergiDairesi</td>
-                            <td>@item.Tarih</td>
-                            <td>@item.Saat</td>
-                            <td>@item.Toplam ₺</td>
-                            <td>@item.TeslimEden</td>
-                            <td>@item.TeslimAlan</td>
-                            <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-outline-success">Detay</a></td>
-                            <td><a href="/Fatura/FaturaDuzenle/@item.FaturaID" class="btn btn-outline-info">Düzenle</a></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-
+<div class="content-wrapper mt-3">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Faturalar</h3>
+                </div>
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Seri No</th>
+                                <th>Sıra No</th>
+                                <th>Vergi Dairesi</th>
+                                <th>Tarih</th>
+                                <th>Saat</th>
+                                <th>Toplam</th>
+                                <th>Teslim Eden</th>
+                                <th>Teslim Alan</th>
+                                <th>Detaylar</th>
+                                <th>Düzenle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.FaturaID</td>
+                                    <td>@item.FaturaSeriNo</td>
+                                    <td>@item.FaturaSiraNo</td>
+                                    <td>@item.VergiDairesi</td>
+                                    <td>@item.Tarih</td>
+                                    <td>@item.Saat</td>
+                                    <td>@item.Toplam ₺</td>
+                                    <td>@item.TeslimEden</td>
+                                    <td>@item.TeslimAlan</td>
+                                    <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-outline-success">Detay</a></td>
+                                    <td><a href="/Fatura/FaturaDuzenle/@item.FaturaID" class="btn btn-outline-info">Düzenle</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <a href="/Fatura/FaturaEkle" class="btn btn-primary">Yeni Ekle</a>
         </div>
-    </div>
+    </section>
 </div>
+

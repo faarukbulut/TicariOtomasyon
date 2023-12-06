@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TicariOtomasyon.Models.Siniflar;
 using TicariOtomasyon.Repositories.KategoriRepositories;
+using TicariOtomasyon.Repositories.UrunDetayRepositories;
 using TicariOtomasyon.Repositories.UrunRepositories;
 
 namespace TicariOtomasyon.Controllers
@@ -9,11 +10,13 @@ namespace TicariOtomasyon.Controllers
     {
         private readonly IUrunRepository _urunRepository;
         private readonly IKategoriRepository _kategoriRepository;
+        private readonly IUrunDetayRepository _urunDetayRepository;
 
-        public UrunController(IUrunRepository urunRepository, IKategoriRepository kategoriRepository)
+        public UrunController(IUrunRepository urunRepository, IKategoriRepository kategoriRepository, IUrunDetayRepository urunDetayRepository)
         {
             _urunRepository = urunRepository;
             _kategoriRepository = kategoriRepository;
+            _urunDetayRepository = urunDetayRepository;
         }
 
         public IActionResult Index()
@@ -60,6 +63,16 @@ namespace TicariOtomasyon.Controllers
             _urunRepository.Update(value);
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult UrunDetay(int id)
+        {
+            UrunList u = new UrunList();
+
+            u.Deger1 = _urunRepository.GetAll().Where(x => x.UrunID == id);
+            u.Deger2 = _urunDetayRepository.GetAll().Where(x => x.UrunDetayID == id);
+
+            return View(u);
         }
     }
 }

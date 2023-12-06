@@ -4,18 +4,24 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container-fluid">
-    <h4 class="mt-4">Yeni Departman Ekle</h4>
-    <div class="card mb-4">
-        <div class="card-body">
-            <form method="post" class="form-group">
+<div class="content-wrapper mt-3">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Departman Ekle</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="form-group">
 
-                <label>Departman Ad</label>
-                <input type="text" asp-for="DepartmanAd" class="form-control" />
-                <br />
+                        <label>Departman Ad</label>
+                        <input type="text" asp-for="DepartmanAd" class="form-control" />
+                        <br />
 
-                <button class="btn btn-primary">Ekle</button>
-            </form>
+                        <button class="btn btn-primary">Ekle</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>

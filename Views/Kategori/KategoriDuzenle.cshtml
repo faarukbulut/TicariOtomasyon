@@ -4,20 +4,26 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container-fluid">
-    <h4 class="mt-4">Kategori Düzenle</h4>
-    <div class="card mb-4">
-        <div class="card-body">
-            <form method="post" class="form-group">
+<div class="content-wrapper mt-3">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Kategori Düzenle</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="form-group">
 
-                @Html.HiddenFor(x => x.KategoriID)
+                        @Html.HiddenFor(x => x.KategoriID)
 
-                <label>Kategori Ad</label>
-                <input type="text" asp-for="KategoriAd" class="form-control" />
-                <br />
+                        <label>Kategori Ad</label>
+                        <input type="text" asp-for="KategoriAd" class="form-control" />
+                        <br />
 
-                <button class="btn btn-primary">Düzenle</button>
-            </form>
+                        <button class="btn btn-primary">Düzenle</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>

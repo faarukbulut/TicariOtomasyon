@@ -4,40 +4,45 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container-fluid">
-    <h4 class="mt-4">@ViewBag.cari Satışları</h4>
-    <div class="card mb-4">
-        <div class="card-body">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Satış ID</th>
-                        <th>Ürün</th>
-                        <th>Personel</th>
-                        <th>Fiyat</th>
-                        <th>Adet</th>
-                        <th>Toplam</th>
-                        <th>Tarih</th>
-                        <th>Yazdır</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@item.SatisHareketID</td>
-                            <td>@item.Urun.UrunAd</td>
-                            <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
-                            <td>@item.Fiyat t</td>
-                            <td>@item.Adet</td>
-                            <td>@item.ToplamTutar ₺</td>
-                            <td>@item.Tarih</td>
-                            <td><a href="#" class="btn btn-outline-info">Yazdır</a></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-
+<div class="content-wrapper mt-3">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">@ViewBag.cari Satışları</h3>
+                </div>
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>Satış ID</th>
+                                <th>Ürün</th>
+                                <th>Personel</th>
+                                <th>Fiyat</th>
+                                <th>Adet</th>
+                                <th>Toplam</th>
+                                <th>Tarih</th>
+                                <th>Yazdır</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.SatisHareketID</td>
+                                    <td>@item.Urun.UrunAd</td>
+                                    <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                                    <td>@item.Fiyat t</td>
+                                    <td>@item.Adet</td>
+                                    <td>@item.ToplamTutar ₺</td>
+                                    <td>@item.Tarih</td>
+                                    <td><a href="#" class="btn btn-outline-info">Yazdır</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>

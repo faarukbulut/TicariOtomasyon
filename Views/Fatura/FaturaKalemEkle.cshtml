@@ -4,32 +4,38 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="container-fluid">
-    <h4 class="mt-4">Yeni Fatura Kalem Ekle</h4>
-    <div class="card mb-4">
-        <div class="card-body">
-            <form method="post" class="form-group">
+<div class="content-wrapper mt-3">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Fatura Kalem Ekle</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" class="form-group">
 
-                <input type="hidden" asp-for="FaturaID" value="@ViewBag.FaturaID" />
+                        <input type="hidden" asp-for="FaturaID" value="@ViewBag.FaturaID" />
 
-                <label>Açıklama</label>
-                <input type="text" asp-for="Aciklama" class="form-control" />
-                <br />
+                        <label>Açıklama</label>
+                        <input type="text" asp-for="Aciklama" class="form-control" />
+                        <br />
 
-                <label>Miktar</label>
-                <input type="text" asp-for="Miktar" class="form-control" />
-                <br />
+                        <label>Miktar</label>
+                        <input type="text" asp-for="Miktar" class="form-control" />
+                        <br />
 
-                <label>Birim Fiyat</label>
-                <input type="text" asp-for="BirimFiyat" class="form-control" />
-                <br />
+                        <label>Birim Fiyat</label>
+                        <input type="text" asp-for="BirimFiyat" class="form-control" />
+                        <br />
 
-                <label>Tutar</label>
-                <input type="text" asp-for="Tutar" class="form-control" />
-                <br />
+                        <label>Tutar</label>
+                        <input type="text" asp-for="Tutar" class="form-control" />
+                        <br />
 
-                <button class="btn btn-primary">Ekle</button>
-            </form>
+                        <button class="btn btn-primary">Ekle</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 </div>
