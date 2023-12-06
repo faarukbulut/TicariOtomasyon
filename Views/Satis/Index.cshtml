@@ -1,0 +1,47 @@
+﻿@model List<SatisHareket>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h4 class="mt-4">Satışlar</h4>
+    <div class="card mb-4">
+        <div class="card-body">
+            <table class="table table-bordered" id="dataTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ürün</th>
+                        <th>Cari</th>
+                        <th>Personel</th>
+                        <th>Adet</th>
+                        <th>Fiyat</th>
+                        <th>Toplam</th>
+                        <th>Tarih</th>
+                        <th>Düzenle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SatisHareketID</td>
+                            <td>@item.Urun.UrunAd</td>
+                            <td>@item.Cari.CariAd @item.Cari.CariSoyad</td>
+                            <td>@item.Personel.PersonelAd @item.Personel.PersonelSoyad</td>
+                            <td>@item.Adet</td>
+                            <td>@item.Fiyat ₺</td>
+                            <td>@item.ToplamTutar ₺</td>
+                            <td>@item.Tarih</td>
+                            <td><a href="/Satis/SatisDuzenle/@item.SatisHareketID" class="btn btn-outline-danger">Düzenle</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a href="/Satis/SatisEkle" class="btn btn-primary">Yeni Ekle</a>
+            <a href="/Satis/SatisYazdir" target="_blank" class="btn btn-primary">Yazdır</a>
+        </div>
+    </div>
+</div>
