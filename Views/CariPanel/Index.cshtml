@@ -1,0 +1,43 @@
+﻿@model Cari
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<br />
+<h2>Online Ticari Otomasyon - Cari Bilgileri</h2>
+
+<form method="post" asp-action="Index" asp-controller="CariPanel">
+
+    @Html.HiddenFor(x => x.CariID)
+    @Html.HiddenFor(x => x.Durum)
+
+    <div class="mb-3">
+        <label>E-Posta</label>
+        @Html.TextBoxFor(x => x.CariMail, new {@class="form-control"})
+    </div>
+
+    <div class="mb-3">
+        <label>Ad</label>
+        @Html.TextBoxFor(x => x.CariAd, new {@class="form-control"})
+    </div>
+    
+    <div class="mb-3">
+        <label>Soyad</label>
+        @Html.TextBoxFor(x => x.CariSoyad, new {@class="form-control"})
+    </div>
+    
+    <div class="mb-3">
+        <label>Şehir</label>
+        @Html.TextBoxFor(x => x.CariSehir, new {@class="form-control"})
+    </div>
+    
+    <div class="mb-3">
+        <label>Şifre</label>
+        @Html.TextBoxFor(x => x.CariSifre, new {@class="form-control"})
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+    </div>
+</form>

@@ -8,5 +8,6 @@ namespace TicariOtomasyon.Repositories.CariRepositories
         Cari Get(int id);
         void Create(Cari cari);
         void Update(Cari cari);
+        Cari GetForLogin(Cari cari);
     }
 }

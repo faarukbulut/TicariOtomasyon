@@ -30,5 +30,11 @@ namespace TicariOtomasyon.Repositories.CariRepositories
             c.Caris.Update(cari);
             c.SaveChanges();
         }
-    }
+
+		public Cari GetForLogin(Cari cari)
+		{
+            var value = c.Caris.FirstOrDefault(x => x.CariMail == cari.CariMail && x.CariSifre == cari.CariSifre);
+            return value;
+		}
+	}
 }

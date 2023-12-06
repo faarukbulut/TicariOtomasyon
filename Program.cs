@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using TicariOtomasyon.Models.Siniflar;
 using TicariOtomasyon.Repositories.CariRepositories;
 using TicariOtomasyon.Repositories.DepartmanRepositories;
@@ -12,10 +15,24 @@ using TicariOtomasyon.Repositories.UrunRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddDbContext<Context>();
+
+builder.Services.AddMvc(config =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+builder.Services.AddMvc();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+{
+    x.LoginPath = "/Login/Index";
+});
+
+
 builder.Services.AddScoped<IKategoriRepository, KategoriRepository>();
 builder.Services.AddScoped<IUrunRepository, UrunRepository>();
 builder.Services.AddScoped<IDepartmanRepository, DepartmanRepository>();
@@ -40,6 +57,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseAuthentication();
 
 app.UseRouting();
 
