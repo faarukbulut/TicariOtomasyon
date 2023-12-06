@@ -15,15 +15,11 @@
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Seri No</th>
-                                <th>Sıra No</th>
-                                <th>Vergi Dairesi</th>
+                                <th>Seri No - Sıra No</th>
                                 <th>Tarih</th>
                                 <th>Saat</th>
                                 <th>Toplam</th>
-                                <th>Teslim Eden</th>
-                                <th>Teslim Alan</th>
+                                <th>Popup</th>
                                 <th>Detaylar</th>
                                 <th>Düzenle</th>
                             </tr>
@@ -32,15 +28,11 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@item.FaturaID</td>
-                                    <td>@item.FaturaSeriNo</td>
-                                    <td>@item.FaturaSiraNo</td>
-                                    <td>@item.VergiDairesi</td>
+                                    <td>@item.FaturaSeriNo - @item.FaturaSiraNo</td>
                                     <td>@item.Tarih</td>
                                     <td>@item.Saat</td>
                                     <td>@item.Toplam ₺</td>
-                                    <td>@item.TeslimEden</td>
-                                    <td>@item.TeslimAlan</td>
+                                    <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-outline-primary">Popup</a></td>
                                     <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-outline-success">Detay</a></td>
                                     <td><a href="/Fatura/FaturaDuzenle/@item.FaturaID" class="btn btn-outline-info">Düzenle</a></td>
                                 </tr>

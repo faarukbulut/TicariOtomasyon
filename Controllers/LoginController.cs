@@ -74,5 +74,10 @@ namespace TicariOtomasyon.Controllers
             return RedirectToAction("Index");
         }
 
+        public async Task<IActionResult> Cikis()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

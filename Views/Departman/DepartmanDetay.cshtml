@@ -16,9 +16,7 @@
                         <thead>
                             <tr>
                                 <th>Personel ID</th>
-                                <th>Ad</th>
-                                <th>Soyad</th>
-                                <th>Görsel</th>
+                                <th>Ad Soyad</th>
                                 <th>Satışlar</th>
                             </tr>
                         </thead>
@@ -27,9 +25,7 @@
                             {
                                 <tr>
                                     <td>@item.PersonelID</td>
-                                    <td>@item.PersonelAd</td>
-                                    <td>@item.PersonelSoyad</td>
-                                    <td>@item.PersonelGorsel</td>
+                                    <td>@item.PersonelAd @item.PersonelSoyad</td>
                                     <td><a href="/Departman/DepartmanPersonelSatis/@item.PersonelID" class="btn btn-outline-danger">Satışlar</a></td>
                                 </tr>
                             }
