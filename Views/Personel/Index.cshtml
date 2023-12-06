@@ -6,42 +6,45 @@
 
 <div class="content-wrapper mt-3">
     <section class="content">
-        <div class="container-fluid">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Personeller</h3>
-                </div>
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Personel Ad</th>
-                                <th>Personel Soyad</th>
-                                <th>Görsel</th>
-                                <th>Departman</th>
-                                <th>Düzenle</th>
-                                <th>Satışlar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@item.PersonelID</td>
-                                    <td>@item.PersonelAd</td>
-                                    <td>@item.PersonelSoyad</td>
-                                    <td>@item.PersonelGorsel</td>
-                                    <td>@item.Departman.DepartmanAd</td>
-                                    <td><a href="/Personel/PersonelDuzenle/@item.PersonelID" class="btn btn-outline-info">Düzenle</a></td>
-                                    <td><a href="/Departman/DepartmanPersonelSatis/@item.PersonelID" class="btn btn-outline-danger">Satışlar</a></td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+        <div class="card card-solid">
+            <div class="card-body pb-0">
+                <div class="row d-flex align-items-stretch">
+                    @foreach(var item in Model)
+                    {
+                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                            <div class="card bg-light">
+                                <div class="card-header text-muted border-bottom-0">
+                                    @item.Departman.DepartmanAd
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="lead"><b>@item.PersonelAd @item.PersonelSoyad</b></h2>
+                                            <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-5 text-center">
+                                            <img src="~/Upload/images/personeller/@item.PersonelGorsel" class="img-circle img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="text-right">
+                                        <a href="/Personel/PersonelDuzenle/@item.PersonelID" class="btn btn-sm btn-primary">Düzenle</a>
+                                        <a href="/Departman/DepartmanPersonelSatis/@item.PersonelID" class="btn btn-sm btn-primary">Satış Geçmişi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
-            <a href="/Personel/PersonelEkle" class="btn btn-primary">Yeni Ekle</a>
+            <div class="card-footer">
+                <a href="/Personel/PersonelEkle" class="btn btn-primary">Yeni Ekle</a>
+            </div>
         </div>
     </section>
 </div>
