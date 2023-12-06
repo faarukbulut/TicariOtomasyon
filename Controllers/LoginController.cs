@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using TicariOtomasyon.Models.Siniflar;
+using TicariOtomasyon.Repositories.AdminRepositories;
 using TicariOtomasyon.Repositories.CariRepositories;
 
 namespace TicariOtomasyon.Controllers
@@ -11,10 +12,12 @@ namespace TicariOtomasyon.Controllers
     public class LoginController : Controller
     {
         private readonly ICariRepository _cariRepository;
+        private readonly IAdminRepository _adminRepository;
 
-		public LoginController(ICariRepository cariRepository)
+		public LoginController(ICariRepository cariRepository, IAdminRepository adminRepository)
 		{
 			_cariRepository = cariRepository;
+			_adminRepository = adminRepository;
 		}
 
 		public IActionResult Index()
@@ -46,6 +49,27 @@ namespace TicariOtomasyon.Controllers
 				await HttpContext.SignInAsync(principal);
 				return RedirectToAction("Index", "CariPanel");
 			}
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PersonelGiris(Admin admin)
+        {
+            var values = _adminRepository.GetForLogin(admin);
+
+            if(values != null )
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, admin.KullaniciAd),
+                };
+
+                var useridentity = new ClaimsIdentity(claims, "a");
+                ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
+                await HttpContext.SignInAsync(principal);
+                return RedirectToAction("Index", "Kategori");
+            }
 
             return RedirectToAction("Index");
         }

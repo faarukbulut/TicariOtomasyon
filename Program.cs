@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using TicariOtomasyon.Models.Siniflar;
+using TicariOtomasyon.Repositories.AdminRepositories;
 using TicariOtomasyon.Repositories.CariRepositories;
 using TicariOtomasyon.Repositories.DepartmanRepositories;
 using TicariOtomasyon.Repositories.FaturaKalemsRepositories;
@@ -43,6 +44,7 @@ builder.Services.AddScoped<IFaturaRepository, FaturaRepository>();
 builder.Services.AddScoped<IFaturaKalemRepository, FaturaKalemRepository>();
 builder.Services.AddScoped<IUrunDetayRepository, UrunDetayRepository>();
 builder.Services.AddScoped<IToDoRepository, ToDoRepository>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 
 
 var app = builder.Build();
