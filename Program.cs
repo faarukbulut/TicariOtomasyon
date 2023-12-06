@@ -6,6 +6,7 @@ using TicariOtomasyon.Repositories.FaturaRepositories;
 using TicariOtomasyon.Repositories.KategoriRepositories;
 using TicariOtomasyon.Repositories.PersonelRepositories;
 using TicariOtomasyon.Repositories.SatisHareketRepositories;
+using TicariOtomasyon.Repositories.UrunDetayRepositories;
 using TicariOtomasyon.Repositories.UrunRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +23,7 @@ builder.Services.AddScoped<ISatisHareketRepository, SatisHareketRepository>();
 builder.Services.AddScoped<ICariRepository, CariRepository>();
 builder.Services.AddScoped<IFaturaRepository, FaturaRepository>();
 builder.Services.AddScoped<IFaturaKalemRepository, FaturaKalemRepository>();
+builder.Services.AddScoped<IUrunDetayRepository, UrunDetayRepository>();
 
 
 var app = builder.Build();
