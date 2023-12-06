@@ -32,4 +32,11 @@
     <Folder Include="wwwroot\Upload\images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\weblogin\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\weblogin\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\weblogin\js\jquery-2.1.4.min.js" />
+    <None Include="wwwroot\weblogin\js\jquery.magnific-popup.js" />
+  </ItemGroup>
+
 </Project>
