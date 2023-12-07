@@ -30,8 +30,24 @@ namespace TicariOtomasyon.Controllers
         }
 
         [HttpPost]
-        public IActionResult PersonelEkle(Personel personel)
+        public async Task<IActionResult> PersonelEkle(Personel personel)
         {
+            if(personel.PersonelGorsel2 != null)
+            {
+                var resource = Directory.GetCurrentDirectory();
+                var extension = Path.GetExtension(personel.PersonelGorsel2.FileName);
+                var imagename = Guid.NewGuid() + extension;
+                var savelocation = resource + "/wwwroot/Upload/images/personeller/" + imagename;
+                var stream = new FileStream(savelocation, FileMode.Create);
+                await personel.PersonelGorsel2.CopyToAsync(stream);
+
+                personel.PersonelGorsel = imagename;
+            }
+            else
+            {
+                personel.PersonelGorsel = "";
+            }
+
             _personelRepository.Create(personel);
             return RedirectToAction("Index");
         }

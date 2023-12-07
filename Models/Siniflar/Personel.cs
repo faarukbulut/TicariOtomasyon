@@ -24,5 +24,8 @@ namespace TicariOtomasyon.Models.Siniflar
 
 		public int DepartmanID { get; set; }
 		public Departman Departman { get; set; }
+
+		[NotMapped]
+		public IFormFile PersonelGorsel2 { get; set; }
 	}
 }
