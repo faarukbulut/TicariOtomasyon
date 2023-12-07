@@ -19,7 +19,6 @@
                                 <th>Tarih</th>
                                 <th>Saat</th>
                                 <th>Toplam</th>
-                                <th>Popup</th>
                                 <th>Detaylar</th>
                                 <th>Düzenle</th>
                             </tr>
@@ -32,7 +31,6 @@
                                     <td>@item.Tarih</td>
                                     <td>@item.Saat</td>
                                     <td>@item.Toplam ₺</td>
-                                    <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-outline-primary">Popup</a></td>
                                     <td><a href="/Fatura/FaturaDetay/@item.FaturaID" class="btn btn-outline-success">Detay</a></td>
                                     <td><a href="/Fatura/FaturaDuzenle/@item.FaturaID" class="btn btn-outline-info">Düzenle</a></td>
                                 </tr>
@@ -42,7 +40,39 @@
                 </div>
             </div>
             <a href="/Fatura/FaturaEkle" class="btn btn-primary">Yeni Ekle</a>
+            <br /><br />
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modal1">Popup Penceresi</button>
         </div>
     </section>
 </div>
 
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Popup Dialog Ekranı</h3>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Seri No</th>
+                            <th>Sıra No</th>
+                            <th>Toplam</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.FaturaSeriNo</td>
+                                <td>@item.FaturaSiraNo</td>
+                                <td>@item.Toplam ₺</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
